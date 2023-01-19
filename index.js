@@ -4,13 +4,15 @@ const bcrypt = require("bcrypt");
 const cors = require("cors");
 
 const { connection } = require("./config/db");
-const { authenticate } = require("./middlewares/authentication");
+// const { authenticate } = require("./middlewares/authentication");
 const { UserModel } = require("./models/User.Model");
 
 require("dotenv").config();
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin : "http://localhost:3000"
+}));
 
 app.use(express.json());
 
